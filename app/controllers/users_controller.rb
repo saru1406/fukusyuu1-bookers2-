@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
   
   def edit
+    @user = current_user
   end
   
   def show
@@ -16,9 +17,15 @@ class UsersController < ApplicationController
   end
   
   def update
+    @user = current_user
+    if @user.update(user_params)
+      redirect_to user_path(@user.id)
+    end
   end
   
-  def destroy
-  end
+  private
   
+  def user_params
+    params.require(:user).permit(:name, :introduction, :image)
+  end
 end

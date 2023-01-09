@@ -3,13 +3,15 @@
   <div class="col-lg-8 offset-lg-1">
     <h2>Book detail</h2>
     <table class="table">
-        <tr>
-          <td><%= link_to @user.name, users_path %></td>
-          <td><%= link_to @book.title, book_path(@book) %></td>
-          <td><%= @book.body %></td>
+      <tr>
+        <td><%= link_to @user.name, users_path %></td>
+        <td><%= link_to @book.title, book_path(@book) %></td>
+        <td><%= @book.body %></td>
+        <% if @book.user == current_user %>
           <td><%= link_to "Edit", edit_book_path(@book), class: "btn btn-success btn-sm" %></td>
           <td><%= link_to "Destroy", book_path, method: :delete , class: "btn btn-danger btn-sm" %></td>
-        </tr>
+        <% end %>
+      </tr>
     </table>
   </div>
 </div>

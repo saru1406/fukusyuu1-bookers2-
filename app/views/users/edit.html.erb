@@ -1,0 +1,12 @@
+<div class="col-lg-5 mx-auto px-0">
+  <h2>User info</h2>
+  <%= form_with model: @user, method: :patch do |f| %>
+    <p>Name</p>
+    <%= f.text_field :name, class: "form-control mb-2" %>
+    <p>Image</p>
+    <%= f.file_field :image, accept: "image/*", class: "mb-2" %>
+    <p>Introduction</p>
+    <%= f.text_area :introduction, class: "form-control" %>
+    <%= f.submit class: "btn btn-secondary mt-3" %>
+  <% end %>
+</div>
